@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-base: transparent;
+    --text-base: #0f172a;
+    --text-muted: #475569;
+    --glass-bg: rgba(255, 255, 255, 0.90);
+    --glass-border: rgba(255, 255, 255, 0.95);
+    --glass-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.2), 0 0 0 1.5px rgba(255, 255, 255, 1) inset, 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    
+    --glass-card-bg: rgba(255, 255, 255, 0.85);
+    --glass-card-border: rgba(255, 255, 255, 0.85);
+    --glass-card-shadow: 0 8px 30px -5px rgba(15, 23, 42, 0.15), 0 0 0 1.5px rgba(255, 255, 255, 0.9) inset;
+
+    --accent-blue: #0284c7;
+    --accent-red: #ef4444;
+  }
+
+  .dark {
+    --bg-base: transparent;
+    --text-base: #f1f5f9;
+    --text-muted: #94a3b8;
+    --glass-bg: rgba(13, 22, 39, 0.85);
+    --glass-border: rgba(56, 189, 248, 0.4);
+    --glass-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.8), 0 0 0 1.5px rgba(56, 189, 248, 0.3) inset;
+    
+    --glass-card-bg: rgba(16, 28, 50, 0.80);
+    --glass-card-border: rgba(56, 189, 248, 0.3);
+    --glass-card-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.7), 0 0 0 1.5px rgba(56, 189, 248, 0.2) inset;
+
+    --accent-blue: #38bdf8;
+    --accent-red: #f87171;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--bg-base);
+    color: var(--text-base);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Distinctive ambient maritime background mesh to make frosted glass pop */
+  body {
+    background-image: url('./assets/bg-2.png'); /* Add BG 2.png to src/assets/bg-2.png */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  .dark body, html.dark body {
+    background-image: url('./assets/bg-2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.4);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.7);
+  }
+}
+
+/* Glassmorphism Classes for Panels and Cards */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+  background: var(--glass-card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-card-border);
+  box-shadow: var(--glass-card-shadow);
+}
+
+.glass-panel-subtle {
+  background: var(--glass-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-card-border);
+  box-shadow: var(--glass-card-shadow);
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}

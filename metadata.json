@@ -1,0 +1,8 @@
+{
+  "name": "Remix backup AEGIS-OCEAN Maritime Sentinel",
+  "description": "High-fidelity maritime surveillance, IUU illegal fishing detection, bathymetric radar intelligence, and interdiction operations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
